@@ -1,0 +1,25 @@
+@media all and (max-width: 768px) {
+
+    .hero-container {
+
+        background: url('../images/desk.jpg') no-repeat left top;
+        background-size: cover;
+
+        .title {
+            width: 90%;
+
+            h3 {
+                font-size: 40px;
+            }
+        }
+    }
+
+    .work-container {
+        width: 100%;
+    }
+
+
+
+
+
+}
