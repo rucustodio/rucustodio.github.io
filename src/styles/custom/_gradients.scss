@@ -1,0 +1,15 @@
+@mixin gradient-vertical($top, $bottom) {
+  background: $top;
+  background: -moz-linear-gradient(top,  $top 0%, $bottom 100%);
+  background: -webkit-linear-gradient(top,  $top 0%, $bottom 100%);
+  background: linear-gradient(to bottom,  $top 0%, $bottom 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=0 );
+}
+
+@mixin gradient-radial($inner, $outer) {
+  background: $inner; /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  $inner 0%, $outer 100%);
+  background: -webkit-radial-gradient(center, ellipse cover,  $inner 0%, $outer 100%);
+  background: radial-gradient(ellipse at center, $inner 0%,#e8e9ea 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$inner', endColorstr='$outer',GradientType=1 );
+}

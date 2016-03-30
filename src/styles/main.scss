@@ -1,4 +1,5 @@
 @import "vendor/normalize";
+@import "custom/custom";
 @import "animations/animations";
 
 @font-face {
@@ -17,12 +18,13 @@ body {
 
 .logo {
   font-family: Airstream, arial, sans-serif;
-  color: #fff;
+  color: #2a8099;
   font-size: 45px;
   padding: 25px;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
+  cursor: pointer;
 }
 
 
@@ -101,6 +103,7 @@ body {
   h3 {
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    color: #13467b;
   }
 
   .work-section {
@@ -115,15 +118,42 @@ body {
       height: 100%;
       opacity: 0;
       visibility: hidden;
+      top: 20px;
+      transition: all .4s ease;
 
       &.active {
         opacity: 1;
         visibility: visible;
+        top: 0px;
+      }
+
+
+      .bar {
+        height: 8px;
+        width: 0%;
+        transition: width .5s ease .4s;
       }
     }
 
     p {
       line-height: 150%;
+    }
+
+    #work_1.animate {
+      .html {
+        width: 60%;
+        background: #75b9cc;
+      }
+
+      .js {
+        width: 30%;
+        background: #ff746c;
+      }
+
+      .backend {
+        width: 10%;
+        background: #ff746c;
+      }
     }
   }
 
@@ -133,13 +163,54 @@ body {
     float: right;
 
     .imac {
-      background: url('../images/imac.png') no-repeat;
-      background-size: 100%;
       width: 400px;
       height: 400px;
       position: absolute;
       top: 40px;
       left: 0px;
+      
+      .monitor {
+        background: #000;
+        position: absolute;
+        width: 100%;
+        height: 220px;
+        border-radius: 10px;
+        padding: 10px;
+        z-index: 10;
+
+        .monitor-content {
+          background: #fff;
+          width: 100%;
+          height: 200px;
+        }
+      }
+      
+      .stand {
+        position: absolute;
+        top: 208px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: 75px;
+        z-index: 5;
+        width: 100px;
+        transform: perspective(250px) rotateX(40deg);
+        -webkit-transform: perspective(250px) rotateX(40deg);
+        @include gradient-vertical(#9b9da1, #e8e9ea); //top:first;bottom:second
+      }
+      
+      .stand1 {
+        @extend .stand;
+        width: 130px;
+        top: 270px;
+        height: 10px;
+        border-radius: 15px;
+        transform: perspective(10px) rotateX(40deg);
+        -webkit-transform: perspective(10px) rotateX(40deg);
+        @include gradient-radial(#9b9da1, #e8e9ea);
+        transform-style: preserve-3d;
+
+      }
     }
 
     .iphone {

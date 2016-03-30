@@ -11,11 +11,16 @@ var rlc = (function($) {
     function init() {
         // portfolio.init();
         addEventListenters();
+        $('#work_1').addClass('animate');
     }
 
     function addEventListenters() {
-        $('.fa-arrow-down').on('click', function(e) {
+        $('.scroll-to-work').on('click', function(e) {
             scrollTo('.work-container');
+        });
+
+        $('.logo').click(function() {
+            window.location = '';
         });
 
         $(window).on('scroll', scrollFunc);
@@ -27,8 +32,12 @@ var rlc = (function($) {
 
     ////////////////////////////////////////////////////////////
 
-    function scrollFunc(div) {
+    function scrollFunc() {
+        var scrollTop = $(this).scrollTop();
 
+        if (scrollTop > 300) {
+            $('.work').first().addClass('active');
+        }
     }
 
     function scrollTo(div) {
