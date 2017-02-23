@@ -28,7 +28,6 @@ var rlc = (function($) {
         function handleTweets(tweets) {
             var _tweets = tweets;
 
-            console.log(tweets);
             for (var i = 0; i < tweets.length; i++) {
                 $('<li />', {
                     html: tweets[i].tweet + ' - ' + tweets[i].time
@@ -61,7 +60,7 @@ var rlc = (function($) {
     }
 
     function easterEggs() {
-        console.log('yo!');
+        return 'yo';
     }
 
     ////////////////////////////////////////////////////////////
