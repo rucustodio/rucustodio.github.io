@@ -2,7 +2,7 @@
 
     .hero-container {
 
-        background: url('../images/desk.jpg') no-repeat left top;
+        background: url("../images/desk.jpg") no-repeat left -130px top;
         background-size: cover;
 
         .title {
@@ -12,14 +12,21 @@
                 font-size: 40px;
             }
         }
+
+        .twitter {
+            width: auto;
+        }
     }
 
     .work-container {
         width: 100%;
     }
 
+    #twitter {
+        display: none;
 
-
-
-
+        .tweets {
+            display: none;
+        }
+    }
 }

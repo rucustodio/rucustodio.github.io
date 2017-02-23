@@ -44,7 +44,9 @@ body {
   background-size: cover;
 
   nav {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     opacity: 0;
     transform: translateY(-25px);
     animation: fadeInTop .3s ease .9s forwards;
