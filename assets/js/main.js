@@ -2,47 +2,13 @@ var rlc = (function($) {
 
     var body,
         portfolio;
-        twitterFetcher = twitterFetcher || false;
 
     
     portfolio = function(c) { // c: container for portfolio
-
-    };
-
-    twitter = function(c) {
-        var config = {
-          id : '717437002816204800',
-          domId : 'twitter',
-          maxTweets : 5,
-          enableLinks : true,
-          showUser : true,
-          showTime : true,
-          dateFunction : '',
-          showRetweet : false,
-          customCallback : handleTweets,
-          showInteraction : false,
-          dataOnly : true
-        };
-
-        
-        function handleTweets(tweets) {
-            var _tweets = tweets;
-
-            for (var i = 0; i < tweets.length; i++) {
-                $('<li />', {
-                    html: tweets[i].tweet + ' - ' + tweets[i].time
-                }).appendTo('.tweets');
-            }
-        }
-
-        if (twitterFetcher) {
-            twitterFetcher.fetch(config);
-        }
     };
 
     function init() {
         // portfolio.init();
-        twitter();
         addEventListenters();
         $('#work_1').addClass('animate');
     }
