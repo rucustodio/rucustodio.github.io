@@ -12,6 +12,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './'),
+        publicPath: 'http://localhost:7000/',
         filename: '[name].js',
         chunkFilename: '[id].chunk.js'
     },
@@ -46,7 +47,7 @@ module.exports = {
                 })
             },
             {
-                test: /\.(jpg|png|gif|woff)$/,
+                test: /\.(jpg|png|gif|woff|svg)$/,
                 use: 'file-loader'
             }
         ]
@@ -69,5 +70,9 @@ module.exports = {
             inject: 'body'
         })
     ],
-    watch: true
+    watch: true,
+    devServer: {
+        historyApiFallback: true,
+        stats: 'minimal'
+    }
 };

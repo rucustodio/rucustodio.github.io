@@ -402,7 +402,7 @@ th {
 
 @font-face {
   font-family: Airstream;
-  src: url(f8582627db16c7c3e8d786734a21a773.woff); }
+  src: url(http://localhost:7000/f8582627db16c7c3e8d786734a21a773.woff); }
 
 a {
   color: #2a8099; }
@@ -432,7 +432,7 @@ logo {
   height: 100%;
   left: 0;
   top: 0;
-  background: url(e823af15e9f0a63cf04db58e90e77877.jpg) no-repeat center top;
+  background: url(http://localhost:7000/e823af15e9f0a63cf04db58e90e77877.jpg) no-repeat center top;
   background-size: cover; }
   .hero-container nav {
     position: absolute;
@@ -527,7 +527,7 @@ logo {
 
 @media all and (max-width: 768px) {
   .hero-container {
-    background: url(e823af15e9f0a63cf04db58e90e77877.jpg) no-repeat left -130px top;
+    background: url(http://localhost:7000/e823af15e9f0a63cf04db58e90e77877.jpg) no-repeat left -130px top;
     background-size: cover; }
     .hero-container .title {
       width: 90%; }
