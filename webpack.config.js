@@ -12,7 +12,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, './'),
-        publicPath: 'http://localhost:7000/',
+        publicPath: '/',
         filename: '[name].js',
         chunkFilename: '[id].chunk.js'
     },

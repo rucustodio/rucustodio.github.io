@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "portfolio",
   "scripts": {
-    "build": "webpack-dev-server --inline --progress --port 7000",
+    "build": "webpack",
+    "start": "webpack-dev-server --inline --progress --port 7000",
     "sass": "node-sass -w -r --source-map assets/css --output-style  compressed  app/styles/main.scss assets/css/main.css"
   },
   "repository": {

@@ -402,7 +402,11 @@ th {
 
 @font-face {
   font-family: Airstream;
-  src: url(http://localhost:7000/f8582627db16c7c3e8d786734a21a773.woff); }
+  src: url(/f8582627db16c7c3e8d786734a21a773.woff); }
+
+* {
+  margin: 0;
+  padding: 0; }
 
 a {
   color: #2a8099; }
@@ -423,92 +427,76 @@ logo {
   position: fixed;
   left: 0;
   top: 0;
-  cursor: pointer; }
+  cursor: pointer;
+  z-index: 10; }
+  logo:focus {
+    outline: 0; }
 
-.hero-container {
+.bg-container {
   position: relative;
   z-index: 5;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-  background: url(http://localhost:7000/e823af15e9f0a63cf04db58e90e77877.jpg) no-repeat center top;
+  background: url(/e823af15e9f0a63cf04db58e90e77877.jpg) no-repeat center top;
   background-size: cover; }
-  .hero-container nav {
-    position: absolute;
-    top: 0;
-    right: 0;
-    opacity: 0;
-    transform: translateY(-25px);
-    animation: fadeInTop .3s ease .9s forwards; }
-    .hero-container nav ul {
-      padding: 25px;
-      margin: 0; }
-      .hero-container nav ul li {
-        display: inline;
-        margin-left: 25px;
-        padding-bottom: 15px;
-        transition: border-color .3s ease, padding-bottom .3s ease;
-        border-bottom: 1px solid transparent; }
-        .hero-container nav ul li:hover {
-          border-bottom: 1px solid #fff;
-          padding-bottom: 5px; }
-        .hero-container nav ul li a {
-          color: #fff;
-          text-decoration: none; }
-  .hero-container .social {
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
+  .bg-container .title {
     color: #fff;
-    width: 370px; }
-    .hero-container .social h2 {
-      text-align: center;
-      margin: 0; }
-    .hero-container .social h4 {
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 300;
-      margin: 0;
-      font-size: 12px; }
-    .hero-container .social a {
-      color: white;
-      text-decoration: none; }
-      .hero-container .social a:hover {
-        text-decoration: underline;
-        cursor: pointer; }
-    .hero-container .social svg {
-      transform: scale(0.5);
-      width: 50px;
-      height: 50px;
-      vertical-align: middle; }
-
-.title {
-  color: #fff;
-  width: 500px;
-  margin: 0 auto;
-  transform: translateX(-45px);
-  z-index: 5;
-  opacity: 0;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 100px;
-  animation: fadeInRight .6s ease-out .3s forwards; }
-  .title h3 {
-    margin: 0;
-    font-weight: 600;
-    font-size: 65px;
-    border-bottom: 1px solid #cecece; }
-  .title h4 {
-    text-transform: uppercase;
-    margin-top: 5px;
-    font-weight: 300;
-    letter-spacing: 3.1px;
-    float: right;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+    transform: translateX(-45px);
+    z-index: 5;
     opacity: 0;
-    animation: fadeIn .3s ease .9s forwards; }
+    position: relative;
+    top: 45%;
+    transform: translateY(-50%);
+    height: 100px;
+    animation: fadeInRight .6s ease-out .3s forwards; }
+    .bg-container .title h3.hero {
+      margin: 0;
+      font-weight: 600;
+      font-size: 65px;
+      border-bottom: 1px solid #cecece; }
+    .bg-container .title h4 {
+      text-transform: uppercase;
+      margin-top: 5px;
+      font-weight: 300;
+      letter-spacing: 3.1px;
+      opacity: 0;
+      animation: fadeIn .3s ease .9s forwards; }
+      .bg-container .title h4.right {
+        float: right; }
+
+.social {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  color: #fff;
+  width: 370px;
+  z-index: 10; }
+  .social h2 {
+    text-align: center;
+    margin: 0; }
+  .social h4 {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3.1px;
+    font-weight: 300;
+    margin: 0;
+    font-size: 12px; }
+  .social a {
+    color: white;
+    text-decoration: none; }
+    .social a:hover {
+      text-decoration: underline;
+      cursor: pointer; }
+  .social .twitter {
+    color: #00aced; }
+  .social .linkedin {
+    color: #007bb6; }
 
 .fa-arrow-down {
   position: absolute;
@@ -525,11 +513,43 @@ logo {
   .fa-arrow-down:hover {
     bottom: 5px; }
 
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateY(-25px);
+  animation: fadeInTop .3s ease .9s forwards;
+  z-index: 10; }
+  nav ul {
+    padding: 25px;
+    margin: 0; }
+    nav ul li {
+      display: inline;
+      margin-left: 25px;
+      padding-bottom: 15px;
+      transition: border-color .3s ease, padding-bottom .3s ease;
+      border-bottom: 1px solid transparent;
+      cursor: pointer; }
+      nav ul li:hover {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 5px;
+        outline: 0; }
+      nav ul li:focus {
+        outline: 0; }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none; }
+
+.about-container {
+  background: #222; }
+
 @media all and (max-width: 768px) {
   .hero-container {
-    background: url(http://localhost:7000/e823af15e9f0a63cf04db58e90e77877.jpg) no-repeat left -130px top;
+    background: url(/e823af15e9f0a63cf04db58e90e77877.jpg) no-repeat left -130px top;
     background-size: cover; }
     .hero-container .title {
+      top: 40%;
       width: 90%; }
       .hero-container .title h3 {
         font-size: 40px; }
