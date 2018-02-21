@@ -5,30 +5,26 @@ var path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: {
-        'polyfills' : './app/polyfills.ts',
-        'main': './app/main.ts',
-        'vendor' : './app/vendor.ts',
-    },
+    entry: "./src/index.tsx",
     output: {
         path: path.resolve(__dirname, './'),
-        publicPath: '/',
-        filename: '[name].js',
-        chunkFilename: '[id].chunk.js'
+        publicPath: '',
+        filename: 'app.js',
     },
+    devtool: 'source-map',
     resolve: {
-        extensions: ['.ts', '.js', '.json'],
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         modules: [path.resolve(__dirname, 'node_modules')],
+        alias: {
+            "react": "preact-compat",
+            "react-dom": "preact-compat"
+        }
     },
     module: {
         rules: [
             {
-                test: /\.html$/,
-                use: 'html-loader'
-            },
-            {
-                test: /\.ts$/,
-                use: ['awesome-typescript-loader', 'angular2-template-loader']
+                test: /\.tsx$/,
+                use: ['awesome-typescript-loader']
             },
             {
                 test: /\.css$/,
@@ -43,33 +39,33 @@ module.exports = {
                 test: /\.scss$/, 
                 loader: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: ["css-loader", "sass-loader"],
+                    use: [
+                        { loader: "css-loader", options: { minimize: true } }, 
+                        "sass-loader"
+                    ],
                 })
             },
             {
                 test: /\.(jpg|png|gif|woff|svg)$/,
                 use: 'file-loader'
-            }
+            },
+            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
         ]
     },
     plugins: [
         new ExtractTextPlugin('main.css'),
         new webpack.optimize.UglifyJsPlugin(),
-        new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)@angular/,
-            helpers.root('./'),
-            {}
-        ),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: ['main', 'vendor', 'polyfills']
-        }),
-
         new HtmlWebpackPlugin({
             template: helpers.root('index.html'),
             filename: 'index.html',
             inject: 'body'
         })
     ],
+    // Turn this back on when you bundle this differently into chunks
+    // externals: {
+    //     "react": "React",
+    //     "react-dom": "ReactDOM"
+    // },
     watch: true,
     devServer: {
         historyApiFallback: true,

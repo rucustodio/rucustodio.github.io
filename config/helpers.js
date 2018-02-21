@@ -1,6 +1,6 @@
 var path = require('path');
 
-var _root = path.resolve(__dirname, '../app');
+var _root = path.resolve(__dirname, '../src');
 
 function root(args) {
   args = Array.prototype.slice.call(arguments, 0);
