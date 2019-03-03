@@ -20,12 +20,14 @@ export default class App extends React.Component<any, any> {
 
         <div className="social">
             <h2>
-                <a href="https://twitter.com/rucustodio" target="_blank">
-                <i className="fa fa-twitter twitter"></i> @rucustodio</a></h2>
+                <a href="https://www.instagram.com/stories/rcustodi/" target="_blank">
+                <img className="instagram" src="src/images/instagram.svg" width="25" height="25" /> @rcustodi</a></h2>
             <h2>
                 <a href="https://www.linkedin.com/in/rubencustodio/" target="_blank"> 
                 <i className="fa fa-linkedin-square linkedin" aria-hidden="true"></i> linkedin.com/rucustodio</a></h2>
             <h4>Built using React</h4>
+
+
         </div>
       </div>
     )
