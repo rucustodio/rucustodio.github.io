@@ -1,7 +1,6 @@
 import * as React from "react";
-import Nav from "./Nav";
-import Logo from "./Logo";
 import styled from "@emotion/styled";
+import { Sun, Moon, File, Mail, Phone } from 'react-feather';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -15,12 +14,11 @@ const HeroContainer = styled.div`
   height: 100%;
   left: 0;
   top: 0;
-  background: white;
   background-size: cover;
 `;
 
-const Title = styled.div`
-  color: #333;
+const Title = styled.div<{night: boolean;}>`
+  color: ${({night}) => night ? '#fff' : '#333'};
   width: 100%;
   margin: 0;
   padding: 20px 20px 0 20px;
@@ -33,6 +31,7 @@ const Title = styled.div`
   @media screen and (min-width: 600px){
     width: 560px;
     margin: 0 auto;
+    padding: 20px 0 0 0;
   }
 `;
 
@@ -61,10 +60,16 @@ const SocialH2 = styled.h2`
   margin: 0;
 `;
 
-const SocialLink = styled.a`
-  color: #333;
+
+
+const SocialLink = styled.a<{night: boolean}>`
+  color: ${({night}) => night ? '#fff' : '#333'};
   text-decoration: none;
   font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 
   &:hover {
     text-decoration: underline;
@@ -74,15 +79,32 @@ const SocialLink = styled.a`
   i {
     color: #007bb6;
   }
+
+  svg, i {
+    margin-right: 5px;
+  }
 `;
 
-const BuiltWith = styled.h4`
+const SocialLinkWrap = styled.h2`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+
+const ContactLink = styled(SocialLink)`
+  margin: 0;
+  flex-basis: 50px;
+`;
+
+const BuiltWith = styled.h4<{night: boolean}>`
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3.1px;
   font-weight: 300;
   margin: 0;
   font-size: 12px;
+  color: ${({night}) => night ? '#fff' : '#333'};
 `;
 
 const Grid = styled.div`
@@ -110,35 +132,65 @@ const GridItem = styled.div`
   }
 `;
 
+const Nav = styled.div`
+  position: absolute;
+  right: 20px;
+  top: 0;
+  padding: 20px 0;
+  line-height: 56px;
+  cursor: pointer;
 
-const App = () => (
+  @media screen and (min-width: 600px){
+    right: 0;
+  }
+`;
+
+const App = () => {
+  const [night, setNight] = React.useState(false);
+
+  const handleNightModeToggle = () => {
+    document.body.style.backgroundColor = night ? '#fff' : '#1f272b';
+    setNight(!night);
+  }
+
+  return(
   <Wrapper>
     <HeroContainer>
-      <Title>
+      <Title night={night}>
         <HeroTitle>ruben custodio</HeroTitle>
+        <Nav onClick={handleNightModeToggle}>
+          {night ? (<Sun color="white" />) : (<Moon color="#333" />)}
+        </Nav>
       </Title>
       <Grid>
         <GridItem>
           <img src="/src/images/ruben-boat.jpg" width="100%" />
         </GridItem>
-        {/* <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem />
-        <GridItem /> */}
       </Grid>
     </HeroContainer>
 
     <SocialWrapper>
+      <SocialLinkWrap>
+        <ContactLink href="mailto:rucustodio@gmail.com" download target="_blank" night={night}>
+          <Mail />
+        </ContactLink>
+        <ContactLink href="/src/images/RubenCustodioResume.pdf" download target="_blank" night={night}>
+          <File />
+        </ContactLink>
+        <ContactLink href="tel:18054234392" download target="_blank" night={night}>
+          <Phone />
+        </ContactLink>
+      </SocialLinkWrap>
       <SocialH2>
-        <SocialLink href="https://www.linkedin.com/in/rubencustodio/" target="_blank">
+        <SocialLink href="https://www.linkedin.com/in/rubencustodio/" target="_blank" night={night}>
           <i className="fa fa-linkedin-square linkedin" aria-hidden="true"></i>{" "}
           linkedin.com/in/rubencustodio
         </SocialLink>
       </SocialH2>
-      <BuiltWith>Built using React</BuiltWith>
+      <BuiltWith night={night}>Built using React</BuiltWith>
     </SocialWrapper>
   </Wrapper>
 );
+      }
 
 export default App;
