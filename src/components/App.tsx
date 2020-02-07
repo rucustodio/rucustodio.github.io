@@ -38,12 +38,9 @@ const Title = styled.div`
 const HeroTitle = styled.h1`
   margin: 0;
   font-weight: 600;
-  font-size: 25px;
+  font-size: 30px;
   border-bottom: 1px solid #cecece;
   padding-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  line-height: 1;
 `;
 
 const SocialWrapper = styled.div`
