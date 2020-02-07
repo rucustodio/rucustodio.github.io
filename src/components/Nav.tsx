@@ -1,15 +1,13 @@
-import * as React from 'react';
+import * as React from "react";
 
-const Nav : React.SFC<any> = () => {
-  return(
-    <nav>
-      <ul>
-        <li tabIndex={0} ng-reflect-router-link="/about">
-          <a>about</a>
-        </li>
-      </ul>
-    </nav>
-  )
-}
+const Nav = () => (
+  <nav>
+    <ul>
+      <li tabIndex={0} ng-reflect-router-link="/about">
+        <a>about</a>
+      </li>
+    </ul>
+  </nav>
+);
 
 export default Nav;
