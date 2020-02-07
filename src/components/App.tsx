@@ -28,6 +28,7 @@ const Title = styled.div`
   position: relative;
   top: 0px;
   left: 0px;
+  box-sizing: border-box;
 
   @media screen and (min-width: 600px){
     width: 560px;
@@ -50,7 +51,7 @@ const SocialWrapper = styled.div`
   margin: 0 auto;
   bottom: 15px;
   color: #333;
-  width: 400px;
+  width: 300px;
   z-index: 10;
   padding: 20px 0;
 `;
@@ -63,7 +64,7 @@ const SocialH2 = styled.h2`
 const SocialLink = styled.a`
   color: #333;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
 
   &:hover {
     text-decoration: underline;
